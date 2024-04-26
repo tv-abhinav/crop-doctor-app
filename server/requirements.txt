@@ -1,3 +1,5 @@
 onnxruntime==1.11.1
+torch==1.10.2
 flask
 numpy
+Pillow
