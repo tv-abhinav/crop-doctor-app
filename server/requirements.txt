@@ -1,5 +1,8 @@
-onnxruntime==1.11.1
-torch==1.10.2
-flask
 numpy
+flask
 Pillow
+onnxruntime
+-i https://download.pytorch.org/whl/cpu
+torch==2.2.2
+-i https://download.pytorch.org/whl/cpu
+torchvision==0.17.2

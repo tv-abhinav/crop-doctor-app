@@ -9,11 +9,9 @@ from torchvision import transforms
 
 app = Flask(__name__)
 
-onnx_model = onnx.load("SFMDNet-Model\ensemble.onnx")
-sess_options = ort.SessionOptions()
-session = ort.InferenceSession(onnx_model.SerializeToString(), sess_options)
+
 # Load the SavedModel
-# ort_sess = ort.InferenceSession('SFMDNet-Model\ensemble.onnx')
+ort_sess = ort.InferenceSession('./SFMDNet-Model/ensemble.onnx') # Windows: SFMDNet-Model\ensemble.onnx
 
 IDX_TO_CLASS = {
     0: "Apple Scab Leaf",
