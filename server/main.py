@@ -4,7 +4,6 @@ import numpy as np
 from flask import Flask, request, jsonify
 from PIL import Image
 import onnxruntime as ort
-import onnx
 from torchvision import transforms
 
 app = Flask(__name__)
@@ -72,7 +71,7 @@ def predict():
         return jsonify({'error': 'No selected file'})
 
     # Save the uploaded file
-    file_path = 'leaf_image.jpeg'
+    file_path = 'assets/leaf_image.jpeg'
     file.save(file_path)
 
     # Preprocess the image
