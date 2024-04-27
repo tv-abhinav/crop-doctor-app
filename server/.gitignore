@@ -1,4 +1,5 @@
 SFMDNet-Model/ensemble.onnx
 crop-doc-server.sock
 assets/*
-__pycache__
+!assets/.gitkeep
+__pycache__/
