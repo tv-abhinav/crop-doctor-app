@@ -24,11 +24,15 @@ const CameraUpload: React.FC<Props> = ({endpoint, onPress}) => {
       return;
     }
 
+    console.log('before');
+
     const result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       quality: 1,
     });
+
+    console.log('after');
 
     if (!result.canceled) {
       Alert.alert('Picture Taken', `URI: ${result.assets[0].uri}`);
@@ -37,6 +41,7 @@ const CameraUpload: React.FC<Props> = ({endpoint, onPress}) => {
   };
 
   const uploadPhotoToServer = async (photoUri: string) => {
+    console.log('upload started');
     const formData = new FormData();
     formData.append('file', { uri: photoUri, name: 'photo.jpg', type: 'image/jpeg' } as any);
     
@@ -48,6 +53,8 @@ const CameraUpload: React.FC<Props> = ({endpoint, onPress}) => {
           'Content-Type': 'multipart/form-data',
         },
       });
+
+      console.log('upload done');
       
       if (response.ok) {
         const responseData = await response.json();

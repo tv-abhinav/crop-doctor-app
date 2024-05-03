@@ -23,9 +23,15 @@ export default StyleSheet.create({
         fontSize: 20,
         marginBottom: 20
     },
-    container: {
+    row: {
         flex: 1,
         flexDirection: 'row', // Align children horizontally
+        alignItems: 'center', // Center children vertically in the container
+        justifyContent: 'center', // Center children horizontally in the container
+        backgroundColor: '#fff',
+    },
+    container: {
+        flex: 1,
         alignItems: 'center', // Center children vertically in the container
         justifyContent: 'center', // Center children horizontally in the container
         backgroundColor: '#fff',

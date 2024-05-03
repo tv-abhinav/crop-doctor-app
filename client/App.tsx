@@ -5,7 +5,7 @@ import UploadImage from './components/UploadImage';
 import CameraUpload from './components/CameraUpload';
 
 const App: React.FC = () => {
-  let endpoint = 'http://172.17.85.83:5000/predict';
+  let endpoint = process.env.SEMFD_MODEL_SERVER_URL || 'http://34.135.244.136/predict';
   
   const [result, setResult] = useState("Upload file to detect disease if any.")
   const [imageUri, setImageUri] = useState("")
@@ -36,7 +36,7 @@ const App: React.FC = () => {
         }
         <Text style={styles.bodyText}>{result}</Text>
       </View>
-      <View style={styles.container}>
+      <View style={styles.row}>
         <UploadImage endpoint={endpoint} onPress={displayResult} />
         <Text style={{fontSize: 24, marginHorizontal: 20}}>(or)</Text>
         <CameraUpload endpoint={endpoint} onPress={displayResult} />
