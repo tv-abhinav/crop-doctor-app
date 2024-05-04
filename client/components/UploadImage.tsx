@@ -63,8 +63,7 @@ const UploadButton: React.FC<Props> = ({ onPress, endpoint }) => {
         }
       } catch (error) {
         console.error('Error uploading file:', error);
-        onPress("", error as string);
-        // onPress("", "Upload failed.. Please try again");
+        onPress("", (error as any).stack);
       }
     }
   };
